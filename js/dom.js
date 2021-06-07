@@ -1,4 +1,5 @@
 const UNCOMPLETED_LIST_BOOK_ID = "incompleteBookshelfList";
+const COMPLETED_LIST_BOOK_ID = "completeBookshelfList"; 
 
 function addTodo() {
     const uncompletedBOOKList = document.getElementById(UNCOMPLETED_LIST_BOOK_ID );
@@ -31,9 +32,42 @@ function makeTodo(title, author, year) {
     const textYear = document.createElement("p");
     textYear.innerText = year;
  
-    const container = document.createElement("div");
+    const container = document.createElement("article");
     container.classList.add("book_item")
     container.append(textTitle, textAuthor, textYear);
  
+
+    //buat bikin div class action
+    const containerAction = document.createElement('div');
+    containerAction.classList.add('action');
+
+    //bikin tombol selesai dan masukkan ke container action
+    containerAction.append(createCheckButton());
+
+    //masukkan container action ke container book_item
+    container.append(containerAction);
+
     return container;
 }
+
+function createCheckButton() {
+    return createButton("Selesai dibaca","green", function(event){
+        addBookToCompleted(event.target.parentElement.parentElement);
+    });
+}
+
+
+// universal function
+function createButton(buttonText, buttonTypeClass , eventListener) {
+    const button = document.createElement("button");
+    button.classList.add(buttonTypeClass);
+    button.innerText = buttonText;
+    button.addEventListener("click", function (event) {
+        eventListener(event);
+    });
+    return button;
+}
+
+function addBookToCompleted(bookElement) {
+    bookElement.remove();
+} 
