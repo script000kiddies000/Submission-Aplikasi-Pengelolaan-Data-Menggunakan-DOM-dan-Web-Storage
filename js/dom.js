@@ -10,10 +10,10 @@ function addTodo() {
     const BookYear = document.getElementById("inputBookYear").value;
     const BookIsComplete = document.getElementById("inputBookIsComplete").checked;
 
-    console.log("book title " + BookTitle);
-    console.log("book author " + BookAuthor);
-    console.log("book year " + BookYear);
-    console.log("is complete " + BookIsComplete);
+    // console.log("book title " + BookTitle);
+    // console.log("book author " + BookAuthor);
+    // console.log("book year " + BookYear);
+    // console.log("is complete " + BookIsComplete);
 
     const book = makeTodo(BookTitle, BookAuthor, BookYear);
     uncompletedBOOKList.append(book);
@@ -69,5 +69,15 @@ function createButton(buttonText, buttonTypeClass , eventListener) {
 }
 
 function addBookToCompleted(bookElement) {
+    const BookTitle = bookElement.querySelector(".book_item > h3").innerText;
+    const BookAuthor = bookElement.querySelectorAll(".book_item > p")[0].innerText;
+    const BookYear = bookElement.querySelectorAll(".book_item > p")[1].innerText;
+    const BookIsComplete = true;
+
+ 
+    const newBook = makeTodo(BookTitle, BookAuthor, BookYear);
+
+    const listCompleted = document.getElementById(COMPLETED_LIST_BOOK_ID);
+    listCompleted.append(newBook);
     bookElement.remove();
 } 
