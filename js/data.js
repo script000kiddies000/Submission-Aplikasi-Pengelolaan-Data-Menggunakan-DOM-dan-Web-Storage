@@ -16,13 +16,21 @@ function saveData() {
     document.dispatchEvent(new Event("ondatasaved"));
 }
 
-function loadDataFromStorage() {
+function loadDataFromStorage(search="") {
     const serializedData = localStorage.getItem(STORAGE_KEY);
 
     let data = JSON.parse(serializedData);
 
-    if (data !== null)
-        books = data;
+    if (data !== null){
+        if(search){
+            books = data.filter((a) => a.title === search);
+
+            console.log(search)
+        }else{
+            books = data;
+        }
+    }
+        
 
     document.dispatchEvent(new Event("ondataloaded"));
 }
@@ -67,6 +75,9 @@ function findTodoIndex(todoId) {
 function refreshDataFromTodos() {
     let listUncompleted = document.getElementById(UNCOMPLETED_LIST_BOOK_ID);
     let listCompleted = document.getElementById(COMPLETED_LIST_BOOK_ID);
+
+    listUncompleted.innerHTML = "";
+    listCompleted.innerHTML = "";
 
 
     for (book of books) {

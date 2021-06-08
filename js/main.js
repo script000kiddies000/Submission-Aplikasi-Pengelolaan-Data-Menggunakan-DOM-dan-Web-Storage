@@ -10,6 +10,14 @@ document.addEventListener("DOMContentLoaded", function() {
     if (isStorageExist()) {
         loadDataFromStorage();
     }
+
+    const searchForm = document.getElementById("searchSubmit");
+    searchForm.addEventListener('click', function(event) {
+        event.preventDefault();
+
+        const title = document.getElementById('searchBookTitle').value;
+        loadDataFromStorage(title);
+    })
 });
 
 document.addEventListener("ondatasaved", () => {
