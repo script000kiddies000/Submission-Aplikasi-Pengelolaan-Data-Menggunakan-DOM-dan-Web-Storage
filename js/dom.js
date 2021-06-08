@@ -93,6 +93,7 @@ function createButton(buttonText, buttonTypeClass, eventListener) {
     button.addEventListener("click", function(event) {
         eventListener(event);
     });
+    
     return button;
 }
 

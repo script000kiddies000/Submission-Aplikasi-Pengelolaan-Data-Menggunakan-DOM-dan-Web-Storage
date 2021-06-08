@@ -23,7 +23,13 @@ function loadDataFromStorage(search="") {
 
     if (data !== null){
         if(search){
-            books = data.filter((a) => a.title === search);
+            books = data.filter((a) => {
+                for(let b of a.title.split(" ")){
+                    if(b === search){
+                        return b;
+                    }
+                } 
+            });
 
             console.log(search)
         }else{
