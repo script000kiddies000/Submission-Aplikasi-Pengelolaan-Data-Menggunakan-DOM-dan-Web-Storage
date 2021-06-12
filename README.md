@@ -3,15 +3,11 @@ Submission dicoding belajar membuat Front-End Web untuk pemula
 
 
 
-Review Rating : starstarstarstar
+Review Rating : ⭐⭐⭐⭐⭐
 kriteria:
         Mampu Menambahkan Data Buku baru. (Terpenuhi)
-
         Memiliki minimal Dua Rak Buku. Yakni “Belum selesai dibaca” dan “Selesai dibaca”. (Terpenuhi)
-
         Dapat Memindahkan Buku antar Rak. (Terpenuhi)
-
         Dapat Menghapus Data Buku. (Terpenuhi)
-
         Manfaatkan localStorage dalam Menyimpan Data Buku (Terpenuhi)
 
